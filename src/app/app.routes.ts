@@ -4,11 +4,35 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { authGuard } from './guards/auth.guard';
+import { LandingPagesLayoutComponent } from './layouts/landing-pages-layout/landing-pages-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent,
-},
-    { path: 'login', component: LoginComponent,  canActivate: [authGuard({ isAuthPath: true })] },
-    { path: 'signup', component: SignupComponent,  canActivate: [authGuard({ isAuthPath: true })] },
-    { path: 'dashboard', component: DashboardComponent,  canActivate: [authGuard({ requiresAuth: true })] },
+  {
+    path: '',
+    component: LandingPagesLayoutComponent,
+    children: [{ path: '', component: HomeComponent }],
+  },
+  {
+    path: 'auth',
+    component: AuthLayoutComponent,
+    canActivate: [authGuard({ isAuthPath: true })],
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      },
+    ],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardLayoutComponent,
+    canActivate: [authGuard({ requiresAuth: true })],
+    children: [{ path: '', component: DashboardComponent }],
+  },
 ];

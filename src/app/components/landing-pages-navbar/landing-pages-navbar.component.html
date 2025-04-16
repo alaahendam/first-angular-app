@@ -1,0 +1,28 @@
+<div class="w-full flex justify-between items-center">
+  <a routerLink="/" class="flex items-center mr-10">
+    <img src="assets/images/logo.png" alt="Company Logo" class="h-10 w-auto" />
+  </a>
+  <div class="flex gap-1.5">
+    @for (item of items; track $index) {
+    <a
+      [routerLink]="item.link"
+      routerLinkActive="text-black"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="hover:text-gray-200 px-4 py-2 block text-[#FEFEFE] text-lg font-medium"
+      >{{ item.label }}</a
+    >
+    }
+  </div>
+  <div class="flex items-center gap-2">
+    <a
+      routerLink="/auth/signup"
+      class="text-base font-bold text-white w-28 h-12 p-2.5 border border-white rounded-[30px] flex items-center justify-center"
+      >Sign up</a
+    >
+    <a
+      routerLink="/auth/login"
+      class="text-base font-bold text-[#50C66B] w-28 h-12 p-2.5 bg-white rounded-[30px] flex items-center justify-center"
+      >Login</a
+    >
+  </div>
+</div>

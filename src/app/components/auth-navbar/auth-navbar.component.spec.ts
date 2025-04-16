@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { AuthNavbarComponent } from './auth-navbar.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('AuthNavbarComponent', () => {
+  let component: AuthNavbarComponent;
+  let fixture: ComponentFixture<AuthNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent]
+      imports: [AuthNavbarComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(AuthNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

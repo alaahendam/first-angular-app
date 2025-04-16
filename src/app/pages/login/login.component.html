@@ -1,1 +1,98 @@
-<p>login works!</p>
+<div
+  class="size-full h-screen flex items-center flex-col justify-center px-[100px]"
+>
+  <div
+    class="justify-start w-full text-black text-4xl font-extrabold leading-[57px] tracking-wider"
+  >
+    Login..
+  </div>
+  <div
+    class="text-gray-500 w-full text-xl font-normal leading-loose tracking-wide"
+  >
+    Lorem ipsum dolor sit amet consectetur.
+  </div>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="space-y-6 w-full"
+  >
+    <div>
+      <label for="email" class="block text-sm font-normal text-[#899492]"
+        >Email address</label
+      >
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="block w-full mt-2 bg-[#FAFAFA] px-3 py-2 border border-[#F2F2F2] rounded-md focus:outline-none focus:ring-[#50C66B] focus:border-[#50C66B]"
+      />
+      <div
+        *ngIf="
+          loginForm.get('email')?.touched && loginForm.get('email')?.errors
+        "
+        class="text-red-500 text-sm mt-1"
+      >
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">
+          Email is required
+        </div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">
+          Please enter a valid email
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="password" class="block text-sm font-normal text-[#899492]"
+        >Password</label
+      >
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        class="block w-full bg-[#FAFAFA] mt-2 px-3 py-2 border border-[#F2F2F2] rounded-md focus:outline-none focus:ring-[#50C66B] focus:border-[#50C66B]"
+      />
+      <div
+        *ngIf="
+          loginForm.get('password')?.touched &&
+          loginForm.get('password')?.errors
+        "
+        class="text-red-500 text-sm mt-1"
+      >
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">
+          Password is required
+        </div>
+        <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          Password must be at least 6 characters
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="text-red-500 text-sm">
+      {{ errorMessage }}
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid || isLoading"
+        class="text-white cursor-pointer disabled:cursor-not-allowed text-base font-extrabold leading-normal tracking-wide h-12 rounded-[30px] w-full bg-[#50C66B] inline-flex justify-center items-center gap-2.5"
+      >
+        <span *ngIf="!isLoading">Login</span>
+        <span *ngIf="isLoading">Logging in...</span>
+      </button>
+    </div>
+  </form>
+  <div class="flex flex-col gap-3 w-full mt-3">
+    <div
+      class="self-stretch text-center justify-start text-gray-500 text-base font-normal leading-normal tracking-wide"
+    >
+      Don’t Have Account?
+    </div>
+    <button
+      type="button"
+      class="text-[#50C66B] cursor-pointer text-base font-extrabold leading-normal tracking-wide h-12 rounded-[30px] w-full border border-[#50C66B] inline-flex justify-center items-center gap-2.5"
+    >
+      Create Account
+    </button>
+  </div>
+</div>

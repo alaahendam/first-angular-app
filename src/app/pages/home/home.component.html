@@ -1,8 +1,24 @@
-<div class="flex flex-col gap-4">
-    <p class="text-3xl font-bold underline">home works!</p>
-<a routerLink="/">Home</a>
-<a routerLink="/login">Login</a>
-<a routerLink="/signup">Signup</a>
-<a routerLink="/dashboard">Dashboard</a>
+<div class="gap-4 grid grid-cols-2 items-center size-full">
+  <div class="flex flex-col gap-5 size-full justify-center">
+    <div class="justify-start text-white text-5xl font-extrabold">
+      Your Pet’s Health, Organized and Simplified
+    </div>
+    <div class="justify-start text-white text-xl font-normal">
+      Manage your pet’s profiles, track vaccinations, and connect with
+      veterinarians—all in one secure and easy-to-use platform. Stay on top of
+      your pet’s care effortlessly.
+    </div>
+    <a
+      routerLink="/auth/signup"
+      class="text-base font-bold text-[#50C66B] bg-white w-fit h-12 p-2.5 px-4 border rounded-[30px] flex items-center justify-center"
+      >Create Account</a
+    >
+  </div>
+  <div class="size-full flex items-end justify-end">
+    <img
+      src="assets/images/main-dog.png"
+      alt="Company Logo"
+      class="w-[507px] h-[555px]"
+    />
+  </div>
 </div>
-

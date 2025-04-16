@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<div class="size-full flex items-center justify-center flex-col h-full gap-2">
+  @switch(role) { @case('patient') {
+  <p class="capitalize text-white text-2xl">Role: {{ role }}</p>
+  } @case('doctor') {
+  <p class="capitalize text-white text-2xl">Role: {{ role }}</p>
+  } @case('admin') {
+  <p class="capitalize text-white text-2xl">Role: {{ role }}</p>
+  } @default {
+  <p class="capitalize text-white text-2xl">Role: {{ role }}</p>
+  } }
+  <button
+    class="text-white h-12 px-6 rounded-3xl bg-red-500 cursor-pointer"
+    (click)="logout()"
+  >
+    Logout
+  </button>
+</div>
